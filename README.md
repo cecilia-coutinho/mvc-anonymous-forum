@@ -1,1 +1,39 @@
 # mvc-anonymous-forum
+
+* [X]  ER Model (Data Shema): Done
+- obs: I chose not hardcode topics (everything in the database)
+
+TODO:
+
+* [ ] Create classes attributes for each entity
+* [ ] Create Validation Input
+* [ ] Create SeedData Class
+* [ ] setup database migration and updates
+* [ ] Create Controller
+* [ ] Create Basic Views
+* [ ] HomePageView: Display List of Topics
+* [ ] TopicPageView: Display List of threads
+* [ ] TopicPageView: Be able to create a New Thread
+* [ ] ThreadPageView: Display the thread with List of Replies
+* [ ] ThreadPageView: Be able to create a New Reply
+* [ ] Adjust Navbar if necessary
+* [ ] See how to adjust breadCrumbs if necessary
+
+Optional Features:
+* [ ] Add an admin page with authentication such as can delete threads or replies
+* [ ] Save the IP of those who posted each post and reply in the database (but don't show it in the forum)
+* [ ] Add support for posting images to the threads
+* [ ] Advanced Search: Enhance search functionality to allow users to find threads and replies more effectively.
+* [ ] User Reputation System: Implement a reputation system where users can upvote or downvote threads and replies. Higher reputation could unlock certain privileges.
+* [ ] Emoji Reactions: Add emoji reactions to posts and replies to provide quick feedback and engagement.
+* [ ] Content Moderation: Implement automatic content moderation to filter out inappropriate or spammy content.
+* [ ] 
+
+List of features:
+* Topic Listing
+* Thread Management
+* User Replies
+* Navigation
+* Admin Panel (if included)
+* Image Upload Support (if included)
+* Additional Unique Features (if included)
