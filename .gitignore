@@ -1,0 +1,74 @@
+# Compiled files
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# App.config
+LoggerDemo/LoggerDemo/**/*.config
+*.config
+
+# NuGet packages
+*.nuget.props
+*.nuget.targets
+*.user.props
+Packages/
+*.nupkg
+*.snupkg
+*.pdb
+*.dll
+
+# Test Results
+TestResults/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Roslyn Analyzer ruleset
+*.ruleset
+
+# Build and publish Web Sites
+*.PublishSettings
+_PublishedWebsites/
+
+# ASP.NET Core MVC
+appsettings.json
+appsettings.Development.json
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+
+# Xunit
+.xunit.runner.json
+
+# StyleCop
+StyleCopReport.xml
+
+# Others
+_ReSharper*/
+*.DotSettings.user
+*.swp
+*~
+*.cache
+*.log
+*.vspscc
+*.vssscc
+.vscode/
+*.docfx.zip
+*.log
+*.vsix
