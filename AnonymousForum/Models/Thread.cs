@@ -21,9 +21,9 @@ namespace AnonymousForum.Models
         public int FkTopicId { get; set; }
 
         [JsonIgnore]
-        public virtual Topic? Topics { get; set; }
+        public virtual Topic? Topic { get; set; } // Navigation property to Topic
 
         [JsonIgnore]
-        public List<Reply>? Replies { get; set; }
+        public List<Reply>? Replies { get; set; } // Navigation property to Reply
     }
 }

@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="FkTopicId" class="control-label"></label>
-                <input asp-for="FkTopicId" class="form-control" />
+                <select asp-for="FkTopicId" class="form-control" asp-items="ViewBag.FkTopicId"></select>
                 <span asp-validation-for="FkTopicId" class="text-danger"></span>
             </div>
             <div class="form-group">

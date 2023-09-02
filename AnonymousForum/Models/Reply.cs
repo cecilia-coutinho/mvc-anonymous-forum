@@ -21,6 +21,6 @@ namespace AnonymousForum.Models
         public int FkThreadId { get; set; }
 
         [JsonIgnore]
-        public virtual Thread? Threads { get; set; }
+        public virtual Thread? Thread { get; set; } // Navigation property to Thread
     }
 }

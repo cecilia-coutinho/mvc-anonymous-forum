@@ -22,20 +22,20 @@ namespace AnonymousForum.Controllers
         // GET: Threads
         public async Task<IActionResult> Index()
         {
-              return _context.Thread != null ? 
-                          View(await _context.Thread.ToListAsync()) :
-                          Problem("Entity set 'AnonymousForumContext.Thread'  is null.");
+            var anonymousForumContext = _context.Threads.Include(t => t.Topic);
+            return View(await anonymousForumContext.ToListAsync());
         }
 
         // GET: Threads/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Thread == null)
+            if (id == null || _context.Threads == null)
             {
                 return NotFound();
             }
 
-            var thread = await _context.Thread
+            var thread = await _context.Threads
+                .Include(t => t.Topic)
                 .FirstOrDefaultAsync(m => m.ThreadId == id);
             if (thread == null)
             {
@@ -48,6 +48,7 @@ namespace AnonymousForum.Controllers
         // GET: Threads/Create
         public IActionResult Create()
         {
+            ViewData["FkTopicId"] = new SelectList(_context.Topics, "TopicId", "TopicName");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace AnonymousForum.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] Models.Thread thread)
+        public async Task<IActionResult> Create([Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] AnonymousForum.Models.Thread thread)
         {
             if (ModelState.IsValid)
             {
@@ -64,22 +65,24 @@ namespace AnonymousForum.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FkTopicId"] = new SelectList(_context.Topics, "TopicId", "TopicName", thread.FkTopicId);
             return View(thread);
         }
 
         // GET: Threads/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Thread == null)
+            if (id == null || _context.Threads == null)
             {
                 return NotFound();
             }
 
-            var thread = await _context.Thread.FindAsync(id);
+            var thread = await _context.Threads.FindAsync(id);
             if (thread == null)
             {
                 return NotFound();
             }
+            ViewData["FkTopicId"] = new SelectList(_context.Topics, "TopicId", "TopicName", thread.FkTopicId);
             return View(thread);
         }
 
@@ -88,7 +91,7 @@ namespace AnonymousForum.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] Models.Thread thread)
+        public async Task<IActionResult> Edit(int id, [Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] AnonymousForum.Models.Thread thread)
         {
             if (id != thread.ThreadId)
             {
@@ -115,18 +118,20 @@ namespace AnonymousForum.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FkTopicId"] = new SelectList(_context.Topics, "TopicId", "TopicName", thread.FkTopicId);
             return View(thread);
         }
 
         // GET: Threads/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Thread == null)
+            if (id == null || _context.Threads == null)
             {
                 return NotFound();
             }
 
-            var thread = await _context.Thread
+            var thread = await _context.Threads
+                .Include(t => t.Topic)
                 .FirstOrDefaultAsync(m => m.ThreadId == id);
             if (thread == null)
             {
@@ -141,14 +146,14 @@ namespace AnonymousForum.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Thread == null)
+            if (_context.Threads == null)
             {
-                return Problem("Entity set 'AnonymousForumContext.Thread'  is null.");
+                return Problem("Entity set 'AnonymousForumContext.Threads'  is null.");
             }
-            var thread = await _context.Thread.FindAsync(id);
+            var thread = await _context.Threads.FindAsync(id);
             if (thread != null)
             {
-                _context.Thread.Remove(thread);
+                _context.Threads.Remove(thread);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +162,7 @@ namespace AnonymousForum.Controllers
 
         private bool ThreadExists(int id)
         {
-          return (_context.Thread?.Any(e => e.ThreadId == id)).GetValueOrDefault();
+          return (_context.Threads?.Any(e => e.ThreadId == id)).GetValueOrDefault();
         }
     }
 }

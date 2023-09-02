@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.ReplyDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FkThreadId)
+                @Html.DisplayNameFor(model => model.Thread)
             </th>
             <th></th>
         </tr>
@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.ReplyDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FkThreadId)
+                @Html.DisplayFor(modelItem => item.Thread.ThreadDescription)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ReplyId">Edit</a> |

@@ -24,8 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="FkThreadId" class="control-label"></label>
-                <input asp-for="FkThreadId" class="form-control" />
-                <span asp-validation-for="FkThreadId" class="text-danger"></span>
+                <select asp-for="FkThreadId" class ="form-control" asp-items="ViewBag.FkThreadId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

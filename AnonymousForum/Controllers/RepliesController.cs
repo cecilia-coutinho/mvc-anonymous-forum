@@ -22,20 +22,20 @@ namespace AnonymousForum.Controllers
         // GET: Replies
         public async Task<IActionResult> Index()
         {
-              return _context.Reply != null ? 
-                          View(await _context.Reply.ToListAsync()) :
-                          Problem("Entity set 'AnonymousForumContext.Reply'  is null.");
+            var anonymousForumContext = _context.Replies.Include(r => r.Thread);
+            return View(await anonymousForumContext.ToListAsync());
         }
 
         // GET: Replies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Reply == null)
+            if (id == null || _context.Replies == null)
             {
                 return NotFound();
             }
 
-            var reply = await _context.Reply
+            var reply = await _context.Replies
+                .Include(r => r.Thread)
                 .FirstOrDefaultAsync(m => m.ReplyId == id);
             if (reply == null)
             {
@@ -48,6 +48,7 @@ namespace AnonymousForum.Controllers
         // GET: Replies/Create
         public IActionResult Create()
         {
+            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadDescription");
             return View();
         }
 
@@ -64,22 +65,24 @@ namespace AnonymousForum.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadDescription", reply.FkThreadId);
             return View(reply);
         }
 
         // GET: Replies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Reply == null)
+            if (id == null || _context.Replies == null)
             {
                 return NotFound();
             }
 
-            var reply = await _context.Reply.FindAsync(id);
+            var reply = await _context.Replies.FindAsync(id);
             if (reply == null)
             {
                 return NotFound();
             }
+            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadDescription", reply.FkThreadId);
             return View(reply);
         }
 
@@ -115,18 +118,20 @@ namespace AnonymousForum.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadDescription", reply.FkThreadId);
             return View(reply);
         }
 
         // GET: Replies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Reply == null)
+            if (id == null || _context.Replies == null)
             {
                 return NotFound();
             }
 
-            var reply = await _context.Reply
+            var reply = await _context.Replies
+                .Include(r => r.Thread)
                 .FirstOrDefaultAsync(m => m.ReplyId == id);
             if (reply == null)
             {
@@ -141,14 +146,14 @@ namespace AnonymousForum.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Reply == null)
+            if (_context.Replies == null)
             {
-                return Problem("Entity set 'AnonymousForumContext.Reply'  is null.");
+                return Problem("Entity set 'AnonymousForumContext.Replies'  is null.");
             }
-            var reply = await _context.Reply.FindAsync(id);
+            var reply = await _context.Replies.FindAsync(id);
             if (reply != null)
             {
-                _context.Reply.Remove(reply);
+                _context.Replies.Remove(reply);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +162,7 @@ namespace AnonymousForum.Controllers
 
         private bool ReplyExists(int id)
         {
-          return (_context.Reply?.Any(e => e.ReplyId == id)).GetValueOrDefault();
+          return (_context.Replies?.Any(e => e.ReplyId == id)).GetValueOrDefault();
         }
     }
 }

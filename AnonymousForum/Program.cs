@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using AnonymousForum.Data;
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<AnonymousForumContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AnonymousForumContext") ?? throw new InvalidOperationException("Connection string 'AnonymousForumContext' not found.")));
 
