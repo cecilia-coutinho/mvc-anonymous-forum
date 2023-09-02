@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AnonymousForum.Data;
+using AnonymousForum.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,13 @@ builder.Services.AddDbContext<AnonymousForumContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    DbHelper.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
