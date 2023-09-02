@@ -7,6 +7,7 @@ namespace AnonymousForum.Models
 {
     public class Topic
     {
+        [Key]
         public int TopicId { get; set; }
 
         [Required(ErrorMessage = "Invalid name or Format")]
