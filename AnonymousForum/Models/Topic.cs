@@ -7,7 +7,7 @@ namespace AnonymousForum.Models
 {
     public class Topic
     {
-        public int Id { get; set; }
+        public int TopicId { get; set; }
 
         [Required(ErrorMessage = "Invalid name or Format")]
         [StringLength(30, MinimumLength = 3), DisplayName("Topic Name"), RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
