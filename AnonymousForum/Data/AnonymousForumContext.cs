@@ -10,14 +10,17 @@ namespace AnonymousForum.Data
 {
     public class AnonymousForumContext : DbContext
     {
-        public DbSet<AnonymousForum.Models.Topic> Topics { get; set; }
-        public DbSet<AnonymousForum.Models.Thread>? Threads { get; set; }
-        public DbSet<AnonymousForum.Models.Reply> Replies { get; set; }
+        public DbSet<Topic> Topics { get; set; }
+        public DbSet<Models.Thread> Threads { get; set; }
+        public DbSet<Reply> Replies { get; set; }
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public AnonymousForumContext(DbContextOptions<AnonymousForumContext> options)
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-            : base(options){ }
+            : base(options)
+        {
+            Topics = Set<Topic>();
+            Threads = Set<Models.Thread>();
+            Replies = Set<Reply>();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
