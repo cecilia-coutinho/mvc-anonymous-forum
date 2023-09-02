@@ -38,4 +38,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+        name: "thread",
+        pattern: "Threads/TopicThreads/{id}",
+        defaults: new { controller = "Threads", action = "TopicThreads" });
+
 app.Run();

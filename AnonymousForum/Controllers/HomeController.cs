@@ -1,4 +1,5 @@
-﻿using AnonymousForum.Models;
+﻿using AnonymousForum.Data;
+using AnonymousForum.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,17 @@ namespace AnonymousForum.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AnonymousForumContext _context;
+        public HomeController(ILogger<HomeController> logger, AnonymousForumContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var topics = _context.Topics.ToList();
+            return View(topics);
         }
 
         public IActionResult Privacy()

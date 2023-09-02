@@ -21,6 +21,16 @@ namespace AnonymousForum.Controllers
             return View(await anonymousForumContext.ToListAsync());
         }
 
+        public IActionResult TopicThreads(int id)
+        {
+            var threadsTopic = _context.Threads
+                .Where(t => t.FkTopicId == id)
+                .ToList();
+
+            return View(threadsTopic);
+        }
+
+
         // GET: Threads/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -1,0 +1,13 @@
+﻿@model List<AnonymousForum.Models.Thread>
+
+<h1>Threads for Selected Topic</h1>
+
+<ul>
+    @foreach (var thread in Model)
+    {
+        <li>
+            <a href="@Url.Action("ThreadDetails", "Threads", new { id = thread.ThreadId })">@thread.ThreadTitle</a>
+            <div>@thread.ThreadDescription</div>
+        </li>
+    }
+</ul>
