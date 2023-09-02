@@ -18,9 +18,9 @@ namespace AnonymousForum.Models
         public string? ReplyDescription { get; set; }
 
         [Required]
-        public int FkTopicId { get; set; }
+        public int FkThreadId { get; set; }
 
         [JsonIgnore]
-        public virtual Topic? Topics { get; set; }
+        public virtual Thread? Threads { get; set; }
     }
 }
