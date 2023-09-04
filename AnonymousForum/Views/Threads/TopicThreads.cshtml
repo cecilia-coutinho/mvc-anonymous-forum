@@ -1,13 +1,23 @@
 ﻿@model List<AnonymousForum.Models.Thread>
 
+<style>
+    .spacer {
+        padding-bottom: 10px;
+    }
+</style>
+
 <h1>Threads for Selected Topic</h1>
 
 <ul>
     @foreach (var thread in Model)
     {
         <li>
-            <a href="@Url.Action("ThreadDetails", "Threads", new { id = thread.ThreadId })">@thread.ThreadTitle</a>
-            <div>@thread.ThreadDescription</div>
+            <a href="@Url.Action("Details", "Threads", new { id = thread.ThreadId })">@thread.ThreadTitle</a>
+            <div class="spacer">@thread.ThreadDescription</div>
         </li>
     }
 </ul>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Topics</a>
+</div>

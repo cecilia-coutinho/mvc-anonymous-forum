@@ -1,5 +1,6 @@
 ﻿using AnonymousForum.Data;
 using AnonymousForum.Models;
+using AnonymousForum.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

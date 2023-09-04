@@ -46,15 +46,13 @@ namespace AnonymousForum.Controllers
         }
 
         // GET: Replies/Create
-        public IActionResult Create()
+        public IActionResult Create(int fkThreadId)
         {
-            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadDescription");
+            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadTitle", fkThreadId);
             return View();
         }
 
         // POST: Replies/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReplyId,ReplyTitle,ReplyDescription,FkThreadId")] Reply reply)
@@ -63,9 +61,9 @@ namespace AnonymousForum.Controllers
             {
                 _context.Add(reply);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Threads", new {id = reply.FkThreadId});
             }
-            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadDescription", reply.FkThreadId);
+            ViewData["FkThreadId"] = new SelectList(_context.Threads, "ThreadId", "ThreadTitle", reply.FkThreadId);
             return View(reply);
         }
 

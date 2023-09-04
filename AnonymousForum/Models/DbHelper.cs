@@ -110,8 +110,17 @@ namespace AnonymousForum.Models
                 };
 
                 context.Replies.AddRange(replies);
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error saving changes to the database: {ex}");
+                    throw;
+                }
             }
         }
     }
 }
+

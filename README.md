@@ -7,12 +7,12 @@ TODO:
 
 * [x] Create classes attributes for each entity
 * [x] Create Validation Input
-* [ ] Create SeedData Class
-* [ ] setup database migration and updates
+* [x] Create SeedData Class
+* [x] setup database migration and updates
 * [x] Create Controller
 * [x] Create Basic Views
-* [ ] HomePageView: Display List of Topics
-* [ ] TopicPageView: Display List of threads
+* [x] HomePageView: Display List of Topics
+* [ ] Topic Details PageView: Display List of threads
 * [ ] TopicPageView: Be able to create a New Thread
 * [ ] ThreadPageView: Display the thread with List of Replies
 * [ ] ThreadPageView: Be able to create a New Reply
