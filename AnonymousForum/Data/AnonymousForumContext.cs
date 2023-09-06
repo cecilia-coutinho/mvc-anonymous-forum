@@ -37,5 +37,7 @@ namespace AnonymousForum.Data
                 .WithOne(reply => reply.Thread)
                 .HasForeignKey(reply => reply.FkThreadId);
         }
+
+        public DbSet<AnonymousForum.Models.Account>? Account { get; set; }
     }
 }

@@ -10,6 +10,11 @@ builder.Services.AddDbContext<AnonymousForumContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(5);
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -23,7 +28,6 @@ using (var scope = app.Services.CreateScope())
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -37,6 +41,12 @@ app.UseAuthorization();
 app.UseSession();
 
 app.MapControllerRoute(
+    name: "Login",
+    pattern: "Account/Login",
+    defaults: new { controller = "Account", action = "Login" }
+);
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
@@ -44,12 +54,5 @@ app.MapControllerRoute(
         name: "thread",
         pattern: "Threads/TopicThreads/{id}",
         defaults: new { controller = "Threads", action = "TopicThreads" });
-
-app.MapControllerRoute(
-    name: "Login",
-    pattern: "Account/Login",
-    defaults: new { controller = "Account", action = "Login" }
-);
-
 
 app.Run();
