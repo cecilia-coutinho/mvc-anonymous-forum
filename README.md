@@ -12,10 +12,10 @@ TODO:
 * [x] Create Controller
 * [x] Create Basic Views
 * [x] HomePageView: Display List of Topics
-* [ ] Topic Details PageView: Display List of threads
-* [ ] TopicPageView: Be able to create a New Thread
-* [ ] ThreadPageView: Display the thread with List of Replies
-* [ ] ThreadPageView: Be able to create a New Reply
+* [x] Topic Details PageView: Display List of threads
+* [x] TopicPageView: Be able to create a New Thread
+* [x] ThreadPageView: Display the thread with List of Replies
+* [x] ThreadPageView: Be able to create a New Reply
 * [ ] Adjust Navbar if necessary
 * [ ] See how to adjust breadCrumbs if necessary
 
