@@ -34,6 +34,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -42,5 +44,12 @@ app.MapControllerRoute(
         name: "thread",
         pattern: "Threads/TopicThreads/{id}",
         defaults: new { controller = "Threads", action = "TopicThreads" });
+
+app.MapControllerRoute(
+    name: "Login",
+    pattern: "Account/Login",
+    defaults: new { controller = "Account", action = "Login" }
+);
+
 
 app.Run();
