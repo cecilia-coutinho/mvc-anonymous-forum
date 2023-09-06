@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    var isAuthenticated = Context.Session.GetString("IsAuthenticated");
+    Layout = isAuthenticated == "true" ? "_LayoutLoggedIn" : "_Layout";
+
 }
 
 <h1>Index</h1>
