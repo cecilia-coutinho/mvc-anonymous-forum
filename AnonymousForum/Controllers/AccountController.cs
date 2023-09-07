@@ -27,7 +27,7 @@ namespace AnonymousForum.Controllers
         public ActionResult Login(string username, string password)
         {
             var userData = DbHelper.UserData();
-            bool isValidUser = !string.IsNullOrEmpty(userData.Username) && !string.IsNullOrEmpty(userData.Password);
+            bool isValidUser = (username == userData.Username) && (password == userData.Password);
 
             if (isValidUser)
             {
