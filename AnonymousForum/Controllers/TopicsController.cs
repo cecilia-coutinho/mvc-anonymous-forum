@@ -27,24 +27,6 @@ namespace AnonymousForum.Controllers
                           Problem("Entity set 'AnonymousForumContext.Topics'  is null.");
         }
 
-        // GET: Topics/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Topics == null)
-            {
-                return NotFound();
-            }
-
-            var topic = await _context.Topics
-                .FirstOrDefaultAsync(m => m.TopicId == id);
-            if (topic == null)
-            {
-                return NotFound();
-            }
-
-            return View(topic);
-        }
-
         // GET: Topics/Create
         public IActionResult Create()
         {

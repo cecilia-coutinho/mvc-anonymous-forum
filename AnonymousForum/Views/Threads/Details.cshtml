@@ -105,10 +105,6 @@
 
 </style>
 
-<div class="bd-style bd">
-    <a href="javascript:history.go(-1)" class="back-link">Back to previous page</a>
-</div>
-
 <h1 class="card-title">Thread's Details</h1>
 
 <div class="thread-list">
@@ -144,4 +140,8 @@
             <a href="@Url.Action("Create", "Replies", new { FkThreadId = Model.Thread.ThreadId })" class="custom-button">Create New Reply</a>
         </div>
     }
+</div>
+
+<div class="bd-style bd">
+    <a href="javascript:history.go(-1)" class="back-link">Back to previous page</a>
 </div>
