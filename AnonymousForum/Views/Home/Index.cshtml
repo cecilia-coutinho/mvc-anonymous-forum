@@ -2,8 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    .display-header {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 2.5rem;
+        background-color: #b8c0ff;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+</style>
+
 <div class="text-center">
-    <h1 class="display-4" style="font-size:2.5rem">Welcome To Anonymous Forum</h1>
+    <h1 class="display-header">Welcome To Anonymous Forum</h1>
 </div>
 
 <partial name="_TopicList" model="Model" />
