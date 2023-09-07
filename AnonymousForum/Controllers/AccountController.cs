@@ -30,10 +30,20 @@ namespace AnonymousForum.Controllers
             if (isValidUser)
             {
                 HttpContext.Session.SetString("IsAuthenticated", "true");
+                HttpContext.Session.SetString("Username", username);
                 return RedirectToAction("Index", "Topics");
             }
 
             ViewBag.ErrorMessage = "Invalid username or password.";
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Remove("IsAuthenticated");
+
             return RedirectToAction("Index", "Home");
         }
     }

@@ -1,0 +1,4 @@
+﻿@{
+    var isAuthenticated = Context.Session.GetString("IsAuthenticated");
+    Layout = isAuthenticated == "true" ? "_LayoutLoggedIn" : "_Layout";
+}

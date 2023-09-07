@@ -2,13 +2,9 @@
 
 @{
     ViewData["Title"] = "Index";
-
-    var isAuthenticated = Context.Session.GetString("IsAuthenticated");
-    Layout = isAuthenticated == "true" ? "_LayoutLoggedIn" : "_Layout";
-
 }
 
-<h1>Index</h1>
+<h1>Replies</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
