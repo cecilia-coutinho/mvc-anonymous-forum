@@ -4,44 +4,29 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Threads</h1>
+<h1 class="card-sub">Threads</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ThreadTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ThreadDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Topic)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThreadTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThreadDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Topic.TopicName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ThreadId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ThreadId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ThreadId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+    <ul class="topic-list-ul">
+        @foreach (var item in Model)
+        {
+            <li class="topic-list-item">
+                <div class="topic-name">
+                    @Html.DisplayFor(modelItem => item.ThreadTitle)
+                </div>
+                <div class="topic-description">
+                    @Html.DisplayFor(modelItem => item.ThreadDescription)
+                </div>
+                <div class="button-container">
+                    <a asp-action="Edit" asp-route-id="@item.ThreadId" class="button-link">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.ThreadId" class="button-link">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.ThreadId" class="button-link">Delete</a>
+                </div>
+            </li>
+        }
+    </ul>
+    <p>
+        <a asp-action="Create" class="custom-button">Create New</a>
+    </p>
+</div>
+

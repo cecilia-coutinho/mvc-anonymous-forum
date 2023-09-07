@@ -16,3 +16,78 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.topic-list-ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.topic-list-item {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.topic-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #1E90FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .custom-button:hover {
+        background-color: #124559;
+    }
+
+.button-link {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+    .button-link:hover {
+        background-color: #46b8da;
+        border-color: #46b8da;
+    }
+
+.card-sub {
+    font-size: 22px;
+    color: #124559;
+    font-weight: 500;
+    padding: 2rem 0;
+}

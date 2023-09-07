@@ -4,31 +4,27 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Topics</h1>
+<div class="container">
+    <div class="card-sub">
+        @Html.DisplayNameFor(model => model.TopicName)
+    </div>
+    <ul class="topic-list-ul">
+        @foreach (var item in Model)
+        {
+            <li class="topic-list-item">
+                <div class="topic-name">
+                    @Html.DisplayFor(modelItem => item.TopicName)
+                </div>
+                <div class="button-container">
+                    <a asp-action="Edit" asp-route-id="@item.TopicId" class="button-link">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.TopicId" class="button-link">Delete</a>
+                </div>
+            </li>
+        }
+    </ul>
+    <p>
+        <a asp-action="Create" class="custom-button">Create New</a>
+    </p>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TopicName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TopicName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TopicId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.TopicId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
