@@ -16,11 +16,11 @@ TODO:
 * [x] TopicPageView: Be able to create a New Thread
 * [x] ThreadPageView: Display the thread with List of Replies
 * [x] ThreadPageView: Be able to create a New Reply
-* [ ] Adjust Navbar if necessary
-* [ ] See how to adjust breadCrumbs if necessary
+* [x] Adjust Navbar if necessary
 
 Optional Features:
-* [ ] Add an admin page with authentication such as can delete threads or replies
+* [x] Add an admin page with authentication such as can delete threads or replies
+* [ ] I apllied UseSession, Try to implement authenticarion
 * [ ] Save the IP of those who posted each post and reply in the database (but don't show it in the forum)
 * [ ] Add support for posting images to the threads
 * [ ] Advanced Search: Enhance search functionality to allow users to find threads and replies more effectively.

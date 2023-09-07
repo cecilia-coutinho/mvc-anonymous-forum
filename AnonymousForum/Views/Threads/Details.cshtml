@@ -60,7 +60,7 @@
         </div>
     }
 
-    @if (isAuthenticated == "false")
+    @if (isAuthenticated != "true")
     {
     <div>
         <a href="@Url.Action("Create", "Replies", new { FkThreadId = Model.Thread.ThreadId })" class="btn btn-primary">Create New Reply</a>
