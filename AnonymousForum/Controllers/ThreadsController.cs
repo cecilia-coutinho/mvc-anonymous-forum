@@ -97,57 +97,6 @@ namespace AnonymousForum.Controllers
             return View(thread);
         }
 
-        // GET: Threads/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Threads == null)
-            {
-                return NotFound();
-            }
-
-            var thread = await _context.Threads.FindAsync(id);
-            if (thread == null)
-            {
-                return NotFound();
-            }
-            ViewData["FkTopicId"] = new SelectList(_context.Topics, "TopicId", "TopicName", thread.FkTopicId);
-            return View(thread);
-        }
-
-        // POST: Threads/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] AnonymousForum.Models.Thread thread)
-        {
-            if (id != thread.ThreadId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(thread);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ThreadExists(thread.ThreadId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["FkTopicId"] = new SelectList(_context.Topics, "TopicId", "TopicName", thread.FkTopicId);
-            return View(thread);
-        }
-
         // GET: Threads/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

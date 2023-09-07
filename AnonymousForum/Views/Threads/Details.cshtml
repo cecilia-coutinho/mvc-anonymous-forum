@@ -5,105 +5,6 @@
     var isAuthenticated = Context.Session.GetString("IsAuthenticated");
 }
 
-<style>
-    .card-title {
-        font-size: 22px;
-        color: #124559;
-        font-weight: 500;
-        padding: 2rem;
-    }
-
-    .title-style {
-        font-size: 22px;
-        font-weight:600;
-    }
-
-    .topic-style {
-        font-weight: 100;
-        font-style:italic;
-    }
-
-    .bd-style {
-        padding-top: 20px;
-    }
-
-    .back-link {
-        display: inline-block;
-        font-size: 16px;
-        color: #124559;
-        margin: 0 2rem;
-    }
-
-    .back-link:hover {
-        color: #1E90FF;
-    }
-
-    .thread-list {
-        list-style-type: none;
-        color: #124559;
-    }
-
-    .thread-list-li {
-        margin-top: 10px;
-        margin-right: 2rem;
-        background-color: #cbf3f0;
-        border-radius: 5px;
-        padding: 2rem;
-        list-style-type: none;
-    }
-
-    .topic-display {
-        font-style:italic;
-    }
-
-    .reply-container {
-        margin-top: 20px;
-        border: 1px solid #ccc;
-        border-radius: 2px;
-        padding: 10px;
-        background-color: #f8f8f8;
-    }
-
-    .reply-title {
-        font-weight: bold;
-        color: #124559;
-        font-size: 18px;
-    }
-
-    .reply-description {
-        color: #124559;
-        font-size: 16px;
-    }
-
-    .reply-actions {
-        margin-top: 10px;
-    }
-
-    .reply-actions .btn {
-        margin-right: 10px;
-    }
-
-    .custom-button {
-        display: inline-block;
-        padding: 10px 20px;
-        margin-top: 1rem;
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1E90FF;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .custom-button:hover {
-        background-color: #124559;
-
-</style>
-
 <h1 class="card-title">Thread's Details</h1>
 
 <div class="thread-list">
@@ -144,3 +45,102 @@
 <div class="bd-style bd">
     <a href="javascript:history.go(-1)" class="back-link">Back to previous page</a>
 </div>
+
+<style>
+    .card-title {
+        font-size: 22px;
+        color: #124559;
+        font-weight: 500;
+        padding: 2rem;
+    }
+
+    .title-style {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .topic-style {
+        font-weight: 100;
+        font-style: italic;
+    }
+
+    .bd-style {
+        padding-top: 20px;
+    }
+
+    .back-link {
+        display: inline-block;
+        font-size: 16px;
+        color: #124559;
+        margin: 0 2rem;
+    }
+
+        .back-link:hover {
+            color: #1E90FF;
+        }
+
+    .thread-list {
+        list-style-type: none;
+        color: #124559;
+    }
+
+    .thread-list-li {
+        margin-top: 10px;
+        margin-right: 2rem;
+        background-color: #cbf3f0;
+        border-radius: 5px;
+        padding: 2rem;
+        list-style-type: none;
+    }
+
+    .topic-display {
+        font-style: italic;
+    }
+
+    .reply-container {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 10px;
+        background-color: #f8f8f8;
+    }
+
+    .reply-title {
+        font-weight: bold;
+        color: #124559;
+        font-size: 18px;
+    }
+
+    .reply-description {
+        color: #124559;
+        font-size: 16px;
+    }
+
+    .reply-actions {
+        margin-top: 10px;
+    }
+
+        .reply-actions .btn {
+            margin-right: 10px;
+        }
+
+    .custom-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 1rem;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        background-color: #1E90FF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .custom-button:hover {
+            background-color: #124559;
+
+</style>

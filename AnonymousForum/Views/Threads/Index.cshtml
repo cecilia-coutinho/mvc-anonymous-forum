@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="card-sub">Threads</h1>
+<h1 class="card-sub" style="padding-left:2rem">Threads</h1>
 
 <div class="container">
     <ul class="topic-list-ul">
@@ -18,15 +18,11 @@
                     @Html.DisplayFor(modelItem => item.ThreadDescription)
                 </div>
                 <div class="button-container">
-                    <a asp-action="Edit" asp-route-id="@item.ThreadId" class="button-link">Edit</a>
                     <a asp-action="Details" asp-route-id="@item.ThreadId" class="button-link">Details</a>
                     <a asp-action="Delete" asp-route-id="@item.ThreadId" class="button-link">Delete</a>
                 </div>
             </li>
         }
     </ul>
-    <p>
-        <a asp-action="Create" class="custom-button">Create New</a>
-    </p>
 </div>
 
