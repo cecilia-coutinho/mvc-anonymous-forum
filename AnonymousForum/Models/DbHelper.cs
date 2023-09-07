@@ -121,6 +121,16 @@ namespace AnonymousForum.Models
                 }
             }
         }
+
+        public static Account UserData()
+        {
+            Account account = new Account{
+                Username = "admin",
+                Password = "1234"
+            };
+
+            return account;
+        }
     }
 }
 

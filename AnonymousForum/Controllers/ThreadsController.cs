@@ -83,8 +83,6 @@ namespace AnonymousForum.Controllers
         }
 
         // POST: Threads/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] AnonymousForum.Models.Thread thread)
@@ -117,8 +115,6 @@ namespace AnonymousForum.Controllers
         }
 
         // POST: Threads/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ThreadId,ThreadTitle,ThreadDescription,FkTopicId")] AnonymousForum.Models.Thread thread)

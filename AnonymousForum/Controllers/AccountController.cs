@@ -1,17 +1,12 @@
 ﻿using AnonymousForum.Data;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
+using AnonymousForum.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Security.Claims;
-using AnonymousForum.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace AnonymousForum.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly AnonymousForumContext _context;
@@ -29,35 +24,15 @@ namespace AnonymousForum.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(Account model)
+        public ActionResult Login(string username, string password)
         {
-            // Validate user credentials here
-            string? username = "admin";
-            string? password = "1234";
+            var userData = DbHelper.UserData();
+            bool isValidUser = !string.IsNullOrEmpty(userData.Username) && !string.IsNullOrEmpty(userData.Password);
 
-            if (model.Username == username && model.Password == password)
+            if (isValidUser)
             {
-
-                var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, model.Username),
-                new Claim(ClaimTypes.Role, "admin")
-            };
-
-                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                var authProperties = new AuthenticationProperties
-                {
-                    AllowRefresh = true,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
-                    IsPersistent = true
-                };
-
-                await HttpContext.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity),
-                    authProperties);
-
+                HttpContext.Session.SetString("IsAuthenticated", "true");
+                HttpContext.Session.SetString("Username", username);
                 return RedirectToAction("Index", "Topics");
             }
 
@@ -65,29 +40,11 @@ namespace AnonymousForum.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //public ActionResult Login(string username, string password)
-        //{
-        //    bool isValidUser = username == "admin" && password == "1234";
-
-        //    if (isValidUser)
-        //    {
-        //        HttpContext.Session.SetString("IsAuthenticated", "true");
-        //        HttpContext.Session.SetString("Username", username);
-        //        return RedirectToAction("Index", "Topics");
-        //    }
-
-        //    ViewBag.ErrorMessage = "Invalid username or password.";
-        //    return RedirectToAction("Index", "Home");
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> LogoutAsync()
+        public ActionResult Logout()
         {
-            //HttpContext.Session.Remove("IsAuthenticated");
-
-            await HttpContext.SignOutAsync(
-                  CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Remove("IsAuthenticated");
 
             return RedirectToAction("Index", "Home");
         }

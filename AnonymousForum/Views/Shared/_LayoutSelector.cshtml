@@ -1,5 +1,4 @@
 ﻿@{
-    var isAuthenticated = User.Identity.IsAuthenticated;
-    @*Context.Session.GetString("IsAuthenticated");*@
-    Layout = isAuthenticated ? "_LayoutLoggedIn" : "_Layout";
+    var isAuthenticated = Context.Session.GetString("IsAuthenticated");
+    Layout = isAuthenticated == "true" ? "_LayoutLoggedIn" : "_Layout";
 }
