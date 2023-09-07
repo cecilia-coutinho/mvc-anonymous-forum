@@ -30,10 +30,7 @@
                         </li>
                     </ul>
 
-@*                    <form asp-controller="Account" asp-action="Logout" method="post">
-                        <button type="submit">Logout</button>
-                    </form>*@
-                    <partial name="_LoginPartial" model="Model" />
+                    @await Html.PartialAsync("_LoginPartial")
 
                 </div>
             </div>
