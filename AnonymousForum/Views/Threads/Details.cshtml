@@ -6,8 +6,11 @@
 }
 
 <style>
-    .bd {
-        padding: 0 15px 15px 20px;
+    .card-title {
+        font-size: 22px;
+        color: #124559;
+        font-weight: 500;
+        padding: 2rem;
     }
 
     .title-style {
@@ -23,51 +26,122 @@
     .bd-style {
         padding-top: 20px;
     }
+
+    .back-link {
+        display: inline-block;
+        font-size: 16px;
+        color: #124559;
+        margin: 0 2rem;
+    }
+
+    .back-link:hover {
+        color: #1E90FF;
+    }
+
+    .thread-list {
+        list-style-type: none;
+        color: #124559;
+    }
+
+    .thread-list-li {
+        margin-top: 10px;
+        margin-right: 2rem;
+        background-color: #cbf3f0;
+        border-radius: 5px;
+        padding: 2rem;
+        list-style-type: none;
+    }
+
+    .topic-display {
+        font-style:italic;
+    }
+
+    .reply-container {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 10px;
+        background-color: #f8f8f8;
+    }
+
+    .reply-title {
+        font-weight: bold;
+        color: #124559;
+        font-size: 18px;
+    }
+
+    .reply-description {
+        color: #124559;
+        font-size: 16px;
+    }
+
+    .reply-actions {
+        margin-top: 10px;
+    }
+
+    .reply-actions .btn {
+        margin-right: 10px;
+    }
+
+    .custom-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 1rem;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        background-color: #1E90FF; /* Change the background color */
+        color: #fff; /* Change the text color */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .custom-button:hover {
+        background-color: #124559; /* Change the background color on hover */
+    }
+
 </style>
 
-<h1 class="bd">Details</h1>
+<div class="bd-style bd">
+    <a href="javascript:history.go(-1)" class="back-link">Back to previous page</a>
+</div>
 
-<div class="bd">
-    <h4>Thread</h4>
-    <hr />
-    <dl class="row">
-        <dd class="col-sm-10 title-style">
-            @Html.DisplayFor(model => model.Thread.ThreadTitle)
-        </dd>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Thread.ThreadDescription)
-        </dd>
-        <div>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Topic)
-        </dt>
-            <dd class="col-sm-10 topic-style">
-            @Html.DisplayFor(model => model.Topic.TopicName)
-        </dd>
-        </div>
-    </dl>
+<h1 class="card-title">Thread's Details</h1>
+
+<div class="thread-list">
+    <ul>
+        <li class="thread-list-li">
+            <h3 class="title-style">@Html.DisplayFor(model => model.Thread.ThreadTitle)</h3>
+            <p class="description-style">@Html.DisplayFor(model => model.Thread.ThreadDescription)</p>
+            <ul class="list-unstyled">
+                <li class="topic-display">
+                    <strong>@Html.DisplayNameFor(model => model.Topic)</strong>: @Html.DisplayFor(model => model.Topic.TopicName)
+                </li>
+            </ul>
+        </li>
+    </ul>
 </div>
 
 
-<div class="bd">
+
+<div class="card-title">
     <h4>Replies</h4>
     <hr />
     @foreach (var reply in Model.Replies)
     {
-        <div>
-            <p>@reply.ReplyTitle</p>
-            <p>@reply.ReplyDescription</p>
+        <div class="reply-container">
+            <p class="reply-title">@reply.ReplyTitle</p>
+            <p class="reply-description">@reply.ReplyDescription</p>
         </div>
     }
 
     @if (isAuthenticated != "true")
     {
-    <div>
-        <a href="@Url.Action("Create", "Replies", new { FkThreadId = Model.Thread.ThreadId })" class="btn btn-primary">Create New Reply</a>
-    </div>
+        <div class="reply-actions">
+            <a href="@Url.Action("Create", "Replies", new { FkThreadId = Model.Thread.ThreadId })" class="custom-button">Create New Reply</a>
+        </div>
     }
-</div>
-
-<div class="bd-style bd">
-    <a href="javascript:history.go(-1)">Back to previous page</a>
 </div>

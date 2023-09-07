@@ -5,11 +5,55 @@
     .spacer {
         padding-bottom: 10px;
     }
+
+    .card-title {
+        font-size: 22px;
+        color: #124559;
+        font-weight: 500;
+        padding: 2rem;
+    }
+
+    .thread-list li {
+        margin-top: 10px;
+        background-color: #cbf3f0;
+        border-radius: 5px;
+        padding: 2rem;
+        margin-right: 2rem;
+    }
+
+    .thread-list {
+        list-style-type: none;
+        color: #124559;
+    }
+
+    .thread-list a {
+        color: #124559;
+        font-weight: 600;
+    }
+
+    .spacer {
+        padding-top: 1rem;
+    }
+
+    .back-link {
+        display: inline-block;
+        font-size: 16px;
+        color: #124559;
+        margin: 2rem;
+    }
+
+    .back-link:hover {
+        color: #1E90FF;
+    }
 </style>
 
-<h1>Threads for Selected Topic</h1>
+<div>
+    <a asp-action="Index" asp-controller="Home" class="back-link">Back to Topics</a>
+</div>
 
-<ul>
+<h1 class="card-title">Threads for Selected Topic</h1>
+
+<ul class="thread-list">
     @foreach (var thread in Model)
     {
         <li>
@@ -18,7 +62,3 @@
         </li>
     }
 </ul>
-
-<div>
-    <a asp-action="Index" asp-controller="Home">Back to Topics</a>
-</div>
