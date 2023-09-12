@@ -26,24 +26,13 @@
         color: #124559;
     }
 
-    .thread-list a {
+    .thrd-a {
         color: #124559;
         font-weight: 600;
     }
 
     .spacer {
         padding-top: 1rem;
-    }
-
-    .back-link {
-        display: inline-block;
-        font-size: 16px;
-        color: #124559;
-        margin: 2rem;
-    }
-
-    .back-link:hover {
-        color: #1E90FF;
     }
 </style>
 
@@ -54,14 +43,14 @@
     @foreach (var thread in Model)
     {
         <li>
-            <a href="@Url.Action("Details", "Threads", new { id = thread.ThreadId })">@thread.ThreadTitle</a>
+            <a href="@Url.Action("Details", "Threads", new { id = thread.ThreadId })" class="thrd-a">@thread.ThreadTitle</a>
             <div class="spacer">@thread.ThreadDescription</div>
         </li>
     }
 </ul>
-<p>
+<div class="btn">
     <a asp-action="Create" class="custom-button">Create New</a>
-</p>
+</div>
 
 <div>
     <a asp-action="Index" asp-controller="Home" class="back-link">Back to Topics</a>

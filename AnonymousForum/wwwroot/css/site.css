@@ -17,6 +17,29 @@ body {
   margin-bottom: 60px;
 }
 
+.container {
+    padding: 10px 20px 20px 20px;
+}
+
+.card-title {
+    font-size: 22px;
+    color: #124559;
+    font-weight: 500;
+    padding: 2rem;
+}
+
+.sub-title {
+    font-size: 18px;
+    color: mediumvioletred;
+    font-weight: 400;
+    margin-left: 2rem;
+}
+
+.title-style {
+    font-size: 22px;
+    font-weight: 600;
+}
+
 .topic-list-ul {
     list-style-type: none;
     padding: 0;
@@ -57,6 +80,7 @@ body {
 
     .custom-button:hover {
         background-color: #124559;
+        color: #fff;
     }
 
 .button-link {
@@ -85,9 +109,68 @@ body {
         border-color: #46b8da;
     }
 
+.button {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #D3D3D3;
+    color: darkslategrey;
+    border: none;
+    font-weight: 600;
+}
+
+    .button:hover {
+        background-color: #46b8da;
+        border-color: #46b8da;
+        color: #fff;
+    }
+
+    /*    .button.edit {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+
+    .button.details {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+    } */
+
+    .button.delete {
+        background-color: #f44336;
+        color: white;
+        border: none;
+    }
+
 .card-sub {
     font-size: 22px;
     color: #124559;
     font-weight: 500;
     padding: 2rem 0;
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 16px;
+    color: #124559;
+    margin: 2rem;
+}
+
+.btn {
+    margin-left: 20px;
+}
+
+
+.back-link:hover {
+    color: #1E90FF;
+}
+
+.row {
+margin-left: 20px;
 }
