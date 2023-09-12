@@ -38,9 +38,26 @@
                 @Html.DisplayFor(modelItem => item.Thread.ThreadDescription)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ReplyId" class="button edit">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.ReplyId" class="button details">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.ReplyId" class="button delete">Delete</a>
+                <a 
+                    asp-action="Edit" 
+                    asp-route-id="@item.ReplyId" 
+                    class="button-link">
+                    Edit
+                </a>
+
+                <a 
+                    asp-action="Details" 
+                    asp-route-id="@item.ReplyId" 
+                    class="button-link">
+                    Details
+                </a>
+                
+                <a 
+                    asp-action="Delete" 
+                    asp-route-id="@item.ReplyId" 
+                    class="button-link">
+                    Delete
+                </a>
             </td>
         </tr>
 }
@@ -48,7 +65,12 @@
 </table>
 
     <div style="margin-left: -2rem;">
-        <a asp-action="Index" asp-controller="Home" class="back-link">Back to Topics</a>
+        <a 
+            asp-action="Index" 
+            asp-controller="Home" 
+            class="back-link">
+            Back to Topics
+        </a>
     </div>
 </div>
 

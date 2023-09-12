@@ -5,26 +5,47 @@
 }
 
 <div class="container">
+
     <div class="card-sub">
         @Html.DisplayNameFor(model => model.TopicName)
     </div>
+
     <ul class="topic-list-ul">
         @foreach (var item in Model)
         {
             <li class="topic-list-item">
+
                 <div class="topic-name">
                     @Html.DisplayFor(modelItem => item.TopicName)
                 </div>
+
                 <div class="button-container">
-                    <a asp-action="Edit" asp-route-id="@item.TopicId" class="button-link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.TopicId" class="button-link">Delete</a>
+                    <a 
+                        asp-action="Edit"
+                        asp-route-id="@item.TopicId" 
+                        class="button-link">
+                        Edit
+                    </a>
+
+                    <a 
+                        asp-action="Delete" 
+                        asp-route-id="@item.TopicId" 
+                        class="button-link">
+                        Delete
+                    </a>
                 </div>
             </li>
         }
     </ul>
+
     <p>
-        <a asp-action="Create" class="custom-button">Create New</a>
+        <a 
+            asp-action="Create" 
+            class="custom-button">
+            Create New
+        </a>
     </p>
+
 </div>
 
 

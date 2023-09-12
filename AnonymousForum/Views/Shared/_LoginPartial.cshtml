@@ -6,25 +6,59 @@
 
 @if (isAuthenticated == "true")
 {
-    <form asp-controller="Account" asp-action="Logout" method="post">
+    <form 
+        asp-controller="Account" 
+        asp-action="Logout" 
+        method="post">
+
         <div style="display:flex; flex-direction:row; align-items:center; gap: 10px">
+
             <div class="navbar-text">
                 Welcome, @username!
             </div>
-            <button type="submit" class="btn btn-default" style="margin-right:0; border:solid grey 1px">Logout</button>
+
+            <button 
+                type="submit" 
+                class="btn btn-default" 
+                style="margin-right:0; border:solid grey 1px">
+                Logout
+            </button>
         </div>
     </form>
 }
 else
 {
-    <form asp-controller="Account" asp-action="Login" method="post" class="navbar-nav flex-grow-1" style="display: flex; gap: 10px">
+    <form 
+        asp-controller="Account" 
+        asp-action="Login" 
+        method="post" 
+        class="navbar-nav flex-grow-1" 
+        style="display: flex; gap: 10px">
+
         <div class="form-group">
-            <input type="text" name="username" placeholder="Username" class="form-control" autocomplete="on">
+            <input 
+                type="text" 
+                name="username" 
+                placeholder="Username" 
+                class="form-control" 
+                autocomplete="on">
         </div>
+
         <div class="form-group">
-            <input type="password" name="password" placeholder="Password" class="form-control" autocomplete="off">
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Password" 
+                class="form-control" 
+                autocomplete="off">
         </div>
-        <button type="submit" class="button" style="margin-right:0">Login</button>
+
+        <button 
+            type="submit" 
+            class="button" 
+            style="margin-right:0">
+            Login
+        </button>
     </form>
 }
 
