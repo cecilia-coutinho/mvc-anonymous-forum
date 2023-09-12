@@ -9,10 +9,10 @@ namespace AnonymousForum.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Invalid")]
         public string? Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Invalid")]
         public string? Password { get; set; }
 
     }
