@@ -1,5 +1,9 @@
 ﻿
-# MVC Anonymous Forum 🗣️
+<h1 align="center">MVC Anonymous Forum 🗣️</h1>
+
+<p align = center>
+by <a href="https://github.com/Cecilia-Coutinho">Cecilia Coutinho</a>
+</p>
 
 ## 🌍 Overview
 
