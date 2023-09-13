@@ -27,13 +27,14 @@ The MVC Anonymous Forum is a web application designed to facilitate discussions 
 
 ✅ **Basic Views:** Basic views to display information related to topics, threads, and replies:
 
-	-HomePageView: This view displays a list of topics, providing users with an overview of available discussions. By clicking on a topic, the user can follow the flow to:
+- **HomePageView:** This view displays a list of topics, providing users with an overview of available discussions. By clicking on a topic, the user can follow the flow to:
 
-		- TopicThreads PageView: This view displays a list of threads associated with a selected topic, allowing users to explore specific discussions.
 
-			- Users can create new threads related to a selected topic, promoting user-generated content and interaction.
+  - **TopicThreads PageView:** This view displays a list of threads associated with a selected topic, allowing users to explore specific discussions.
 
-		- ThreadPageView (Display and Reply): This view displays a specific thread with a list of replies. Users can also create new replies to participate in the discussion.
+ - Users can create new threads related to a selected topic, promoting user-generated content and interaction.
+
+- **ThreadPageView (Display and Reply):** This view displays a specific thread with a list of replies. Users can also create new replies to participate in the discussion.
 
 ✅ **Navigation:** Navigation features to allow users to move between different sections.
 
