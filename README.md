@@ -67,7 +67,8 @@ The SQL design follows a relational database model, with tables representing ent
 
 The codebase is organized according to the MVC architecture. Each entity has its corresponding model, view, and controller classes, ensuring a clear separation of concerns. 
 
-[IMAGE CODE STRUCTURE]
+
+![Code Structure](AnonymousForum/wwwroot/Images/mvc-codeStructure.PNG)
 
 Additionally, input validation logic is integrated into the controllers to ensure data integrity.
 
@@ -81,7 +82,7 @@ Additionally, input validation logic is integrated into the controllers to ensur
 
 An admin page was added to allow users with the ability to manage topics, threads and replies. 
 
-[IMAGE ADMIN PAGE]
+![Admin Login](AnonymousForum/wwwroot/Images/admin-page.PNG)
 
 I opted for the UseSession approach instead of UseAuthentication. This choice was driven by my interest in exploring a more lightweight method to know how it works. 
 
@@ -111,7 +112,7 @@ if (isValidUser)
 
 By storing topics in the database, we enable dynamic content management. This approach allows for the addition, modification, and deletion of topics without the need to alter the codebase, providing flexibility and scalability.
 
-[IMAGE ADMIN TOPICS PAGE]
+![Admin Topics Page](AnonymousForum/wwwroot/Images/admin-topics-edition.PNG)
 
 The user data was not stored in the database, since it was only for exploring purposes, instead I used the Helper Class.
 
