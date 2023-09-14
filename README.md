@@ -124,5 +124,5 @@ The user data was not stored in the database, since it was only for exploring pu
 
 ### Conclusion
 
-The MVC Anonymous Forum is a simple but well-structured web application designed to facilitate discussions on various topics. By following MVC principles and making key design decisions, the project provides a good foundation for further development and customization.
+The MVC Anonymous Forum is a simple but well-structured web application designed to facilitate discussions on various topics. By following MVC principles and making key design decisions, the project can provide a good foundation for further development and customization.
 
