@@ -48,6 +48,8 @@ The MVC Anonymous Forum is a web application designed to facilitate discussions 
 
 * SQL Server Management Studio (SSMS)
 
+* Entity Framework
+
 * HTML
 
 * CSS
